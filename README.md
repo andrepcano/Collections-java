@@ -9,7 +9,16 @@ src/
 ├── Generics/
 │   ├── Ex1/
 │   ├── Ex2/
-│   └── ExExemplo/
+│   ├── ExExemplo/
+│   └── ExFixacao/
+│       ├── application/
+│       │   └── Main.java
+│       ├── entities/
+│       │   ├── Livro.java
+│       │   ├── Eletronico.java
+│       │   └── Estoque.java
+│       └── services/
+│           └── Precificavel.java
 │
 ├── Map/
 │   ├── Ex1/
@@ -21,15 +30,17 @@ src/
 │           └── Candidate.java
 │
 └── Set/
-    ├── Ex1/
-    ├── Ex2/
-    ├── Ex3HashCodeEEquals/
-    └── Ex4Comparable/
-        ├── entities/
-        │   └── Product4.java
-        └── Program4.java
+├── Ex1/
+├── Ex2/
+├── Ex3HashCodeEEquals/
+└── Ex4Comparable/
+├── entities/
+│   └── Product4.java
+└── Program4.java
 
 ```
+
+---
 
 ---
 
@@ -41,6 +52,7 @@ Criação de métodos e classes genéricas com bounded wildcards e `Comparable`.
 - **Ex1** — Produtos (`Product`, `Notebook`, `Smartphone`) com cálculo de imposto via interface `Tributavel` e método genérico `max()`
 - **Ex2** — Funcionários (`Employee`, `Developer`, `Manager`) com bônus via interface `Bonificavel` e método genérico `max()`
 - **ExExemplo** — Exemplo base do método genérico `max()` com `<T extends Comparable<? super T>>`
+- **ExFixacao** — Sistema de estoque genérico (`Livro`, `Eletronico`) com interface `Precificavel`, calculando o mais barato, mais caro e média de preços via classe genérica `Estoque<T extends Precificavel>`
 
 ### Set
 Coleção de elementos únicos sem índice, com verificação de pertencimento em O(1).
@@ -60,7 +72,7 @@ Coleção de pares chave → valor com chaves únicas.
 ## Conceitos aplicados
 - Generics com bounded wildcards `<T extends Comparable<? super T>>`
 - Interface `Comparable` e método `compareTo()`
-- Herança e interfaces (`Tributavel`, `Bonificavel`)
+- Herança e interfaces (`Tributavel`, `Bonificavel`, `Precificavel`)
 - `HashSet`, `TreeSet` — unicidade e ordenação
 - `HashMap`, `TreeMap` — associação chave-valor
 - `equals()` e `hashCode()` — identidade de objetos em coleções
