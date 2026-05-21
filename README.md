@@ -1,95 +1,85 @@
 # Collections & Generics — Java
-
 Exercícios práticos sobre **Generics** e **Java Collections Framework**.
 
 ---
 
-## Estrutura do projeto
-
 ```
+## Estrutura do projeto
 src/
-└── Generics/
+├── Generics/
+│   ├── Ex1/
+│   ├── Ex2/
+│   └── ExExemplo/
+│
+├── Map/
+│   ├── Ex1/
+│   ├── Ex2/
+│   └── ExFixacao/
+│       ├── application/
+│       │   └── Program.java
+│       └── entities/
+│           └── Candidate.java
+│
+└── Set/
     ├── Ex1/
-    │   ├── application/
-    │   │   └── Main.java
-    │   ├── entities/
-    │   │   ├── Product.java
-    │   │   ├── Notebook.java
-    │   │   └── Smartphone.java
-    │   └── services/
-    │       ├── CalcService.java
-    │       └── Tributavel.java (interface)
-    │
     ├── Ex2/
-    │   ├── application/
-    │   │   └── Main.java
-    │   ├── entities/
-    │   │   ├── Employee.java
-    │   │   ├── Developer.java
-    │   │   └── Manager.java
-    │   └── services/
-    │       ├── MaxService.java
-    │       └── Bonificavel.java (interface)
-    │
-    └── ExExemplo/
-        ├── application/
-        │   └── Main.java
+    ├── Ex3HashCodeEEquals/
+    └── Ex4Comparable/
         ├── entities/
-        │   └── Product.java
-        └── services/
-            └── CalculationService.java
+        │   └── Product4.java
+        └── Program4.java
+
 ```
 
 ---
 
-## Projetos
+## Exercícios
 
-### Ex1 — Produtos e Tributação
-Sistema de produtos com cálculo de imposto usando Generics e Comparable.
+### Generics
+Criação de métodos e classes genéricas com bounded wildcards e `Comparable`.
 
-**Entidades:** `Product`, `Notebook`, `Smartphone`
-**Interface:** `Tributavel`
-**Serviço:** método genérico `max()` para encontrar o maior produto por preço
+- **Ex1** — Produtos (`Product`, `Notebook`, `Smartphone`) com cálculo de imposto via interface `Tributavel` e método genérico `max()`
+- **Ex2** — Funcionários (`Employee`, `Developer`, `Manager`) com bônus via interface `Bonificavel` e método genérico `max()`
+- **ExExemplo** — Exemplo base do método genérico `max()` com `<T extends Comparable<? super T>>`
 
-### Ex2 — Funcionários e Bonificação
-Sistema de funcionários com cálculo de bônus usando Generics, Comparable e herança.
+### Set
+Coleção de elementos únicos sem índice, com verificação de pertencimento em O(1).
 
-**Entidades:** `Employee`, `Developer`, `Manager`
-**Interface:** `Bonificavel`
-**Serviço:** método genérico `max()` para encontrar o maior salário + `imprimirLista()`
+- **Ex1 / Ex2** — Operações básicas com `HashSet`
+- **Ex3 — HashCode e Equals** — Como o `Set` identifica elementos duplicados com `equals()` e `hashCode()`
+- **Ex4 — Comparable** — Ordenação de elementos com `TreeSet` e `compareTo()`
 
-### ExExemplo — Serviço de Cálculo
-Exemplo base do método genérico `max()` com `<T extends Comparable<? super T>>`.
+### Map
+Coleção de pares chave → valor com chaves únicas.
+
+- **Ex1 / Ex2** — Operações básicas com `HashMap`
+- **ExFixacao** — Consolidação de votos por candidato lendo arquivo `.csv`, acumulando votos de múltiplas urnas por nome usando `Map<String, Candidate>` e `TreeMap` para ordenação alfabética
 
 ---
 
 ## Conceitos aplicados
-
 - Generics com bounded wildcards `<T extends Comparable<? super T>>`
 - Interface `Comparable` e método `compareTo()`
 - Herança e interfaces (`Tributavel`, `Bonificavel`)
+- `HashSet`, `TreeSet` — unicidade e ordenação
+- `HashMap`, `TreeMap` — associação chave-valor
+- `equals()` e `hashCode()` — identidade de objetos em coleções
+- Leitura de arquivos com `BufferedReader` e `FileReader`
 - `List` e `ArrayList`
-- Métodos estáticos genéricos
 
 ---
 
-## 🛠️ Tecnologias
-
+## Tecnologias
 Java 25 · IntelliJ IDEA · Git e GitHub
 
 ---
 
 ## Como executar
-
 ```bash
-# Clone o repositório
 git clone https://github.com/seu-usuario/collections-java.git
-
-# Abra no IntelliJ e execute a classe Main de cada exercício
+# Abra no IntelliJ e execute a classe Main/Program de cada exercício
 ```
 
-
-
-## 👨🏻‍💻 Autor
-
-Feito por **André Peixoto Cano** — Estudante de Engenharia de Software na FIAP, aprendendo Java com o curso do professor Nélio Alves na Udemy.
+## Autor
+Feito por **André Peixoto Cano** — Estudante de Engenharia de Software na FIAP,
+aprendendo Java com o curso do professor Nélio Alves na Udemy.
