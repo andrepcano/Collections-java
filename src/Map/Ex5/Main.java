@@ -13,6 +13,7 @@ public class Main {
             frequencia.put(letra, frequencia.getOrDefault(letra, 0) + 1);
         }
 
+
         for(Map.Entry<Character, Integer> entry : frequencia.entrySet()) {
             System.out.println(entry.getKey() + " -> " + entry.getValue());
         }
