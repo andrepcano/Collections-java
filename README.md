@@ -3,22 +3,31 @@ Exercícios práticos sobre **Generics** e **Java Collections Framework**.
 
 ---
 
-```
 ## Estrutura do projeto
+```
 src/
 ├── Generics/
 │   ├── Ex1/
 │   ├── Ex2/
 │   ├── ExExemplo/
-│   └── ExFixacao/
+│   ├── ExFixacao/
+│   │   ├── application/
+│   │   │   └── Main.java
+│   │   ├── entities/
+│   │   │   ├── Livro.java
+│   │   │   ├── Eletronico.java
+│   │   │   └── Estoque.java
+│   │   └── services/
+│   │       └── Precificavel.java
+│   └── ExFixacao2/
 │       ├── application/
 │       │   └── Main.java
 │       ├── entities/
-│       │   ├── Livro.java
-│       │   ├── Eletronico.java
-│       │   └── Estoque.java
+│       │   ├── PacienteComum.java
+│       │   ├── PacienteUrgente.java
+│       │   └── Fila.java
 │       └── services/
-│           └── Precificavel.java
+│           └── Identificavel.java
 │
 ├── Map/
 │   ├── Ex1/
@@ -30,17 +39,14 @@ src/
 │           └── Candidate.java
 │
 └── Set/
-├── Ex1/
-├── Ex2/
-├── Ex3HashCodeEEquals/
-└── Ex4Comparable/
-├── entities/
-│   └── Product4.java
-└── Program4.java
-
+    ├── Ex1/
+    ├── Ex2/
+    ├── Ex3HashCodeEEquals/
+    └── Ex4Comparable/
+        ├── entities/
+        │   └── Product4.java
+        └── Program4.java
 ```
-
----
 
 ---
 
@@ -53,6 +59,7 @@ Criação de métodos e classes genéricas com bounded wildcards e `Comparable`.
 - **Ex2** — Funcionários (`Employee`, `Developer`, `Manager`) com bônus via interface `Bonificavel` e método genérico `max()`
 - **ExExemplo** — Exemplo base do método genérico `max()` com `<T extends Comparable<? super T>>`
 - **ExFixacao** — Sistema de estoque genérico (`Livro`, `Eletronico`) com interface `Precificavel`, calculando o mais barato, mais caro e média de preços via classe genérica `Estoque<T extends Precificavel>`
+- **ExFixacao2** — Sistema de fila de atendimento hospitalar (`PacienteComum`, `PacienteUrgente`) com interface `Identificavel` e classe genérica `Fila<T extends Identificavel>`, implementando entrada, chamada, espiar próximo e busca por CPF
 
 ### Set
 Coleção de elementos únicos sem índice, com verificação de pertencimento em O(1).
@@ -72,7 +79,7 @@ Coleção de pares chave → valor com chaves únicas.
 ## Conceitos aplicados
 - Generics com bounded wildcards `<T extends Comparable<? super T>>`
 - Interface `Comparable` e método `compareTo()`
-- Herança e interfaces (`Tributavel`, `Bonificavel`, `Precificavel`)
+- Herança e interfaces (`Tributavel`, `Bonificavel`, `Precificavel`, `Identificavel`)
 - `HashSet`, `TreeSet` — unicidade e ordenação
 - `HashMap`, `TreeMap` — associação chave-valor
 - `equals()` e `hashCode()` — identidade de objetos em coleções
